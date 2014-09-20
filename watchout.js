@@ -61,7 +61,7 @@ var gameBoard = d3.select('.container').append('svg:svg')
 
 
 
-var throttledcollision = _.throttle(function() { scoreboard.collisions++}, 1000, {trailing:false});
+var throttledcollision = _.throttle(function() { scoreboard.collisions++}, 500, {trailing:false});
 
 var checkCollision = function(enemy) {
   var radiusSum = playerData[0].r + parseFloat(enemy.attr('r'));
