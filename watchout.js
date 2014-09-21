@@ -137,7 +137,7 @@ var update = function(enemyData){
       .attr('y', function(d){ return axes.y(d.y)})
       .attr('height', 0)
       .attr('width', 0)
-      .attr('opacity',.85)
+      .attr('opacity',.7)
     .transition()
       .duration(1000)
       .attr("height", 40)
