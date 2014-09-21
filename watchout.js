@@ -33,15 +33,15 @@ var gameBoard = d3.select('.container').append('svg:svg')
    // <line id="svg_11" y2="238" x2="315" y1="217" x1="314" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#00bf5f" fill="none"/>
    x : 50,
    y : 50,
-   r : 40
+   r : 20
   }];
 
   var dragmove = function(d){
     d.y = Math.max(playerData[0].r, Math.min(gameOptions.height - playerData[0].r, d3.event.y));
     d.x = Math.max(playerData[0].r, Math.min(gameOptions.width - playerData[0].r, d3.event.x));
     d3.select(this)
-      .attr("y", d.y)
-      .attr("x", d.x)
+      .attr("cy", d.y)
+      .attr("cx", d.x)
   }
 
   var drag = d3.behavior.drag()
@@ -50,14 +50,15 @@ var gameBoard = d3.select('.container').append('svg:svg')
   var player = gameBoard.selectAll('image.player')
           .data(playerData, function(d) {return d})
           .enter()
-    .append("svg:image")
+    .append("svg:circle")
     .attr('class', 'player')
-    .attr('x', function(d){ return axes.x(d.x)})
-    .attr('y', function(d){ return axes.y(d.y)})
-    .attr('width', function(d) {return d.r})
-    .attr('height', function(d) {return d.r})
-    .attr("xlink:href", function(d) {return 'player.png';})
+    .attr('cx', function(d){ return axes.x(d.x)})
+    .attr('cy', function(d){ return axes.y(d.y)})
+    .attr('r', function(d){return d.r})
+    .attr('fill', 'teal')
     .call(drag);
+        //.attr('animation-direction', 'normal')
+    //.attr("xlink:href", function(d) {return 'player.png';})
 
 
 
@@ -66,8 +67,8 @@ var throttledcollision = _.throttle(function() { scoreboard.collisions++}, 500, 
 
 var checkCollision = function(enemy) {
   var radiusSum = playerData[0].r + parseFloat(enemy.attr('r'));
-  var xDiff = parseFloat(enemy.attr('cx')  - player.attr('x'));
-  var yDiff = parseFloat(enemy.attr('cy') - player.attr('y'));
+  var xDiff = parseFloat(enemy.attr('cx')  - player.attr('cx'));
+  var yDiff = parseFloat(enemy.attr('cy') - player.attr('cy'));
   var distance = Math.sqrt(Math.pow(xDiff,2) + Math.pow(yDiff,2))
   //console.log(playerData[0].r, enemy.attr('r'), xDiff, yDiff, distance, radiusSum)
   //console.log("player radiues, enemy rad, xdiff, y diff , distance, radiusSum ")

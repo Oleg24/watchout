@@ -16,3 +16,20 @@ body {
   line-height: 20px;
   float: right;
 }
+.player {
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 200ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-transform-origin: 50% 50%;
+  -webkit-animation-timing-function: linear;
+  display: inline-block;
+  padding: 0px;
+
+}
+ @-webkit-keyframes spin {
+        from {
+            -webkit-transform: rotate(0deg);
+        } to {
+            -webkit-transform: rotate(360deg);
+        }
+    }
