@@ -9,6 +9,7 @@ body {
 
 .scoreboard{
   color: white;
+  font-family: 'Orbitron', sans-serif;
 }
 .scoreboard{
   width: 300px;
@@ -16,7 +17,7 @@ body {
   line-height: 20px;
   float: right;
 }
-.player {
+.enemy {
   -webkit-animation-name: spin;
   -webkit-animation-duration: 200ms;
   -webkit-animation-iteration-count: infinite;
@@ -33,3 +34,8 @@ body {
             -webkit-transform: rotate(360deg);
         }
     }
+#header{
+  color: white;
+  float: left;
+  font-family: 'Codystar', cursive;
+}
