@@ -1,7 +1,7 @@
 // start slingin' some d3 here.
 
 var gameOptions = {
-  height: window.innerHeight-90,
+  height: window.innerHeight-110,
   width: window.innerWidth - 20,
   nEnemies: Math.floor(window.innerHeight / 30),
 };

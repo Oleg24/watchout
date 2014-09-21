@@ -10,6 +10,7 @@ body {
 .scoreboard{
   color: white;
   font-family: 'Orbitron', sans-serif;
+  margin-top: 10px;
 }
 .scoreboard{
   width: 300px;
@@ -38,4 +39,6 @@ body {
   color: white;
   float: left;
   font-family: 'Codystar', cursive;
+  font-size: 3.5em;
+  margin: 10px;
 }
